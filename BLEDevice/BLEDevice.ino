@@ -1,24 +1,17 @@
 //==============================================================================
 //
-//      FILE : BLEDevice.ino
+//     FILE : BLEDevice.ino
 //
-//   PROJECT : Any
+//  PROJECT : Any Chrome-based Web App requiring access to a Bluetooth Device
 //
-//  FUNCTION : Template for BLE Device
+//    NOTES : Bluetooth SIG Assigned Numbers:
+//            https://www.bluetooth.com/wp-content/uploads/Files/Specification/Assigned_Numbers.pdf
 //
-//     NOTES : Not OO code! :(  but here is a reference anyway
-//             https://randomnerdtutorials.com/esp32-bluetooth-low-energy-ble-arduino-ide/
-//             https://github.com/nkolban/esp32-snippets/blob/master/cpp_utils/tests/BLETests/SampleServer.cpp
+//            See the following for generating random UUIDs:
+//            https://www.uuidgenerator.net/
 //
-//             Bluetooth SIG Assigned Numbers:
-//             https://www.bluetooth.com/wp-content/uploads/Files/Specification/Assigned_Numbers.pdf
-//
-//             See the following for generating random UUIDs:
-//             https://www.uuidgenerator.net/
-//
-//    AUTHOR : Bill Daniels
-//             Copyright 2023-2024, D+S Tech Labs, Inc.
-//             All Rights Reserved
+//   AUTHOR : Bill Daniels (bill@dstechlabs.com)
+//            See LICENSE.md
 //
 //=============================================================================
 
