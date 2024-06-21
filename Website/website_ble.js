@@ -82,7 +82,7 @@ async function scanForDevices ()
 
     // Connect to selected device's GATT Server
     btServer = await btDevice.gatt.connect ();
-    dataWindow.innerHTML += 'Connected to ' + btDevice.name + '<br>';
+    AddToLog ('Connected to ' + btDevice.name);
 
     // Get Service
     btService = await btServer.getPrimaryService (deviceServiceUUID);  // BLE Device Service
@@ -114,7 +114,7 @@ function sendCommand ()
       const btValue = textEncoder.encode (value);  // Encode value into Uint8Array (UTF-8 bytes)
 
       commandChar.writeValueWithResponse (btValue);
-      dataWindow.innerHTML += '◀── ' + value + '<br>';
+      AddToLog ('◀── ' + value);
     }
   }
   catch (ex)
@@ -133,7 +133,22 @@ function updateValue (event)
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView
     // Use a TextDecoder to convert to string
     const stringValue = textDecoder.decode (event.target.value);
-    dataWindow.innerHTML += '──▶ ' + stringValue + '<br>';
+    AddToLog ('──▶ ' + stringValue);
+  }
+  catch (ex)
+  {
+    alert (ex);
+  }
+}
+
+//--- AddToLog --------------------------------------------
+
+function AddToLog (htmlMessage)
+{
+  try
+  {
+    dataWindow.innerHTML += htmlMessage + '<br>';
+    dataWindow.scrollTop = Number.MAX_SAFE_INTEGER;
   }
   catch (ex)
   {
