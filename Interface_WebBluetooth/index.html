@@ -1,0 +1,95 @@
+<!doctype html>
+<!--=======================================================
+//
+//     FILE : index.html
+//
+//  PROJECT : Any Chrome-based Web App requiring access to a Bluetooth Device
+//
+//    NOTES : The Web Bluetooth API only works in a secure context (https://...)
+//            The Arduino NANO 33 IoT board seems to stop responding if hit
+//            with too many BT messages too fast.
+//
+//   AUTHOR : Bill Daniels
+//            Copyright 2022-2024, D+S Tech Labs, Inc.
+//            MIT License
+//
+//======================================================-->
+
+<html lang="en-us">
+
+  <!-- Head -->
+  <head>
+
+    <!-- These three meta tags MUST come first in the <head> tag. -->
+    <!-- All other <head> content must come AFTER these tags.     -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Web Bluetooth Template</title>
+
+    <style>
+
+      body
+      {
+        margin     : 0;
+        padding    : 0;
+        min-height : 100vh;
+
+        color            : #F0F0F0;
+        background-color : #303040;
+
+        text-align : center;
+      }
+
+      #dataWindow
+      {
+        display  : inline-block;
+        padding  : 0.5vh 0.5vw;
+        width    : 80vw;
+        height   : 30vh;
+        overflow : auto;
+
+        color            : #008000;
+        background-color : #202020;
+        border           : 0.2vw inset #505050;
+
+        font-family : sans-serif;
+        font-size   : large;
+
+        text-align : left;
+      }
+
+    </style>
+
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <h1>Web Bluetooth Template</h1>
+    <br>
+
+    <button id="scanButton" style="padding:1vh 1vw; font-size:x-large; cursor:pointer" onpointerdown="scanForDevices()"> Scan for Bluetooth devices </button>
+    <img id="waitGif" src="wait.gif" style="display:none; width:5vw" />
+
+    <div id="comms" style="display:none; font-size:large">
+      <div id="dataWindow"></div><br>
+      <br>
+
+      <div style="font-size:x-large">
+        Enter command :
+        <input id="commandField" type="text" style="font-size:inherit" />
+        <button style="font-size:inherit" onclick="sendCommand()"> Send </button><br>
+      </div>
+    </div>
+    <br>
+
+
+    <!-- Load scripts -->
+    <script src="WebBluetooth.js"></script>
+
+  </body>
+
+</html>
